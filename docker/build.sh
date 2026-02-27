@@ -12,9 +12,14 @@ if ! docker info > /dev/null 2>&1; then
 fi
 
 # Check if docker is logged in to ghcr.io
-if ! docker info | grep -q "ghcr.io"; then
+if ! grep -q "ghcr.io" ~/.docker/config.json 2>/dev/null; then
     echo "Docker is not logged in to ghcr.io."
+    echo "Hint: create a PAT with write:packages scope at https://github.com/settings/tokens"
     docker login ghcr.io
+    if [ $? -ne 0 ]; then
+        echo "Docker login to ghcr.io failed."
+        exit 1
+    fi
 fi
 
 # Create or use existing multiarch builder
