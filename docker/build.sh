@@ -11,6 +11,12 @@ if ! docker info > /dev/null 2>&1; then
     exit 1
 fi
 
+# Check if docker is logged in to ghcr.io
+if ! docker info | grep -q "ghcr.io"; then
+    echo "Docker is not logged in to ghcr.io."
+    docker login ghcr.io
+fi
+
 # Create or use existing multiarch builder
 if ! docker buildx ls | grep -q stm32-multiarch; then
     docker buildx create --name stm32-multiarch --driver docker-container --platform linux/amd64,linux/arm64 --use
