@@ -231,6 +231,7 @@ function(include_generated_cubemx TARGET_NAME BSP_NAME)
         "${BSP_BUILD_DIR}/startup_*.s"
         "${BSP_BUILD_DIR}/Core/Startup/startup_*.s"
         "${BSP_BUILD_DIR}/Startup/startup_*.s"
+        "${BSP_BUILD_DIR}/*_FLASH.ld"
     )
 
     # Combine all sources
@@ -243,6 +244,11 @@ function(include_generated_cubemx TARGET_NAME BSP_NAME)
 
     message(STATUS "Including CubeMX generated code for ${BSP_NAME}")
     message(STATUS "  Found ${SOURCE_COUNT} source files")
+
+    # C Flags for generated code - disable warnings for generated code
+    target_compile_options(${TARGET_NAME} PRIVATE
+        $<$<COMPILE_LANGUAGE:C>:-w>
+    )
 
     # Add sources to target
     target_sources(${TARGET_NAME} PRIVATE ${ALL_BSP_SOURCES})
