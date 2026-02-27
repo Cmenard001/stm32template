@@ -129,7 +129,7 @@ RUN pip install cmake --upgrade &&\
 ENV PATH="/home/${CONTAINER_USER}/.local/bin:$PATH"
 
 USER root
-RUN echo '#!/bin/sh\nexec java -jar /home/${CONTAINER_USER}/STM32CubeMX/STM32CubeMX.jar "$@"' > /usr/bin/STM32CubeMX && \
+RUN echo '#!/bin/sh\nexec java -jar /home/dev/STM32CubeMX/STM32CubeMX.jar "$@"' > /usr/bin/STM32CubeMX && \
     chmod +x /usr/bin/STM32CubeMX
 
 
