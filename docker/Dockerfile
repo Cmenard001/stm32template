@@ -85,7 +85,7 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
 # CubeMX and STM32CubeProgrammer Installation
 ######################################################
 ENV CUBE_PATH="/home/${CONTAINER_USER}/STM32CubeMX"
-COPY .devcontainer/st.tar.gz /tmp/st.tar.gz
+COPY st.tar.gz /tmp/st.tar.gz
 RUN tar -xzf /tmp/st.tar.gz -C /opt && \
     rm /tmp/st.tar.gz && \
     chown -R ${CONTAINER_USER}:${CONTAINER_USER} /opt/st/Repository
@@ -210,7 +210,7 @@ RUN groupadd -f plugdev && \
 ######################################################
 # Final User Setup
 ######################################################
-COPY .devcontainer/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 USER ${CONTAINER_USER}
 ENV USER=${CONTAINER_USER}
