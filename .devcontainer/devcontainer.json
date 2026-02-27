@@ -1,9 +1,6 @@
 {
     "name": "${localWorkspaceFolderBasename}",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".."
-    },
+    "image": "ghcr.io/cmenard001/stm32template:dev",
     "customizations": {
         "vscode": {
             "extensions": [
