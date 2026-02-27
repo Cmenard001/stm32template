@@ -1,0 +1,40 @@
+{
+    "name": "${localWorkspaceFolderBasename}",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // C extension
+                "ms-vscode.cpptools-extension-pack",
+                // "ms-vscode.cmake-tools",
+                "marus25.cortex-debug",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "kylinideteam.cmake-intellisence",
+                //
+                // Editor extensions
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                "ms-vscode-remote.remote-containers",
+                "wayou.vscode-todo-highlight",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.vscode-serial-monitor",
+                "cschlosser.doxdocgen",
+                "ms-vscode.hexeditor",
+                "jbockle.jbockle-format-files",
+                "jebbs.plantuml",
+                "arturodent.close-other-terminals"
+            ]
+        }
+    },
+    "mounts": [
+        "source=/dev,target=/dev,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/dev/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+    "workspaceFolder": "/home/dev/${localWorkspaceFolderBasename}",
+}

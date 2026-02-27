@@ -1,0 +1,13 @@
+.pnpm-store/
+
+.cache/
+build/
+
+local.cmake
+.clangd
+
+# Exclude VSCode C snippet because it contains the name of the developer
+.vscode/c.code-snippets
+
+src/drivers/stm32g431kc/ioc/**
+!src/drivers/stm32g431kc/ioc/stm32g431kc.ioc
