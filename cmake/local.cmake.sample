@@ -1,0 +1,6 @@
+# @file local.cmake.sample
+# @brief CMake local configuration for the stm32 template project
+# @author Cyprien Ménard
+# @date 23/02/2026
+
+cmake_minimum_required(VERSION 3.20)

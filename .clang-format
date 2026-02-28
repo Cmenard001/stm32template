@@ -1,0 +1,19 @@
+---
+BasedOnStyle: Microsoft
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 1
+ReflowComments: true
+ColumnLimit: 80
+IndentCaseLabels: true
+BinPackArguments: false
+BinPackParameters : false
+SortIncludes: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+  AlignCompound: true
+  PadOperators: true
+PenaltyBreakBeforeFirstCallParameter: 80
+UseTab: Never

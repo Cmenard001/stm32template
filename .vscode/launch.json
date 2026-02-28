@@ -1,0 +1,59 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ST-Link",
+            "cwd": "${workspaceFolder}",
+            "type": "cortex-debug",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "servertype": "stlink",
+            "device": "STM32G431KB",
+            "interface": "swd",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            },
+            "preLaunchCommands": [
+                "break system_assert_failed"
+            ],
+            "stm32cubeprogrammer": "/opt/st/STM32CubeProgrammer/bin",
+            "gdbPath": "gdb-multiarch",
+            "svdFile": "STM32G431.svd",
+            "v1": false,
+            "showDevDebugOutput": "parsed",
+            "presentation": {
+                "hidden": true
+            }
+        },
+        {
+            "name": "J-Link",
+            "cwd": "${workspaceFolder}",
+            "type": "cortex-debug",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch", // Use "attach" to connect to target w/o elf download
+            "servertype": "jlink",
+            "device": "STM32G431KB",
+            "interface": "swd",
+            "liveWatch": {
+                "enabled": true, // Enable live variable watch
+                "samplesPerSecond": 4
+            },
+            "serverArgs": [
+                "-nogui"
+            ],
+            "preLaunchCommands": [
+                "monitor reset",
+                "break system_assert_failed"
+                // "monitor flash erase",
+            ],
+            "gdbPath": "gdb-multiarch", // Use gdb-multiarch from the container
+            "svdFile": "STM32G431.svd", // Path to SVD file to see registers, easy to find with "everything" search engine
+            "v1": false,
+            "showDevDebugOutput": "parsed",
+            "presentation": {
+                "hidden": true
+            }
+        }
+    ]
+}

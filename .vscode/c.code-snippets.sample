@@ -1,0 +1,77 @@
+{
+    "C_Header": {
+        "prefix": "Header",
+        "body": [
+            "/**",
+            " * @file ${TM_FILENAME}",
+            " * @brief ${1:Description du fichier}",
+            " * @author ${2:Prénom Nom}",
+            " * @date ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
+            " * @see ${TM_FILENAME_BASE}.c",
+            " */",
+            "",
+            "#pragma once",
+            "",
+            "/* ********************************* Includes ******************************* */",
+            "",
+            "/* ******************************* Public macros **************************** */",
+            "",
+            "/* **************************** Public types definition ********************* */",
+            "",
+            "/* ************************* Public functions declarations ****************** */",
+            "",
+            "/* ********************* Public callback functions declarations ************* */",
+            ""
+        ],
+        "description": "Header file template for C language"
+    },
+    "C_Source": {
+        "prefix": "Source",
+        "body": [
+            "/**",
+            " * @file ${TM_FILENAME}",
+            " * @brief ${1:Description du fichier}",
+            " * @author ${2:Prénom Nom}",
+            " * @date ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
+            " * @see ${TM_FILENAME_BASE}.h",
+            " * @copyright Cecill-C (Cf. LICENCE.txt)",
+            " */",
+            "",
+            "/* ********************************* Includes ******************************* */",
+            "#include \"${TM_FILENAME_BASE}.h\"",
+            "",
+            "/* ****************************** Private macros **************************** */",
+            "",
+            "/* ************************** Private type definition *********************** */",
+            "",
+            "/* *********************** Private functions declarations ******************* */",
+            "",
+            "/* **************************** Private variables *************************** */",
+            "",
+            "/* ************************ Private functions definitions ******************* */",
+            "",
+            "/* ************************ Public functions definitions ******************** */",
+            "",
+            "/* ******************* Public callback functions definitions **************** */",
+            ""
+        ],
+        "description": "Source file template for C language"
+    },
+    "Doxygen comment line": {
+        "prefix": "Doxygen comment line",
+        "body": "/**< ${1:Description} */",
+    },
+    "CMake_File": {
+        "prefix": "cmake",
+        "body": [
+            "# @file ${TM_FILENAME}",
+            "# @brief ${1:Description du fichier}",
+            "# @author ${2:Prénom Nom}",
+            "# @date ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
+            "",
+            "cmake_minimum_required(VERSION 3.20)",
+            ""
+        ],
+        "description": "CMakeLists.txt template for C language"
+    }
+}

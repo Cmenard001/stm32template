@@ -1,0 +1,25 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "default_preset",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "EXECUTABLE_NAME": "${presetName}"
+            }
+        },
+        {
+            "name": "template_g431",
+            "inherits": "default_preset",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/stm32-g4.cmake",
+            "cacheVariables": {
+                "STM32_BASE_VARIANTS": "stm32;stm32g431;baremetal",
+                "STM32_BSP_NAME": "template_g431"
+            }
+        }
+    ]
+}
